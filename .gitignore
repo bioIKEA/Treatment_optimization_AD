@@ -1,4 +1,4 @@
 *.swp
 .env
-/d3rlpy_logs/
+d3rlpy_logs/
 /d3rlpy_logs/DiscreteCQL_20220603151906/
