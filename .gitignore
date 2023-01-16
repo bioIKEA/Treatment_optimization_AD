@@ -1,7 +1,6 @@
 *.swp
+*.csv
 .env
-d3rlpy_logs/
-/d3rlpy_logs/DiscreteCQL_20220603151906/
-/DiscreteCQL_20220603151906/
+.DS_Store
 
 
