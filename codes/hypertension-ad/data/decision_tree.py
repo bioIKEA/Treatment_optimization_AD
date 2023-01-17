@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics 
 from sklearn.impute import SimpleImputer
 from sklearn.tree import export_graphviz
+from IPython.display import Image  
 import pydotplus
 
 ##setting up display limits for rows and columns 
@@ -16,7 +17,7 @@ pd.set_option('display.max_columns', 20)
 ##replacing NA with forwardfill and/or backwardfill for all columns
 
 
-merged_file= pd.read_csv("/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/new/hypertension-ad/data/merged_wo-sa.csv")
+merged_file= pd.read_csv("/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/final-tests/hypertension-ad-states/data/merged_wo-sa.csv")
 merged_file=merged_file.groupby(['RID']).apply(lambda x: x.ffill().bfill())
 
 ##printing the dimension of data and all column names
@@ -89,7 +90,7 @@ dot_data=tree.export_graphviz(d_tree, out_file=None,
                 filled=True, rounded=True,
                 special_characters=True,feature_names =features_name ,class_names=['normal','mild', 'moderate', 'severe'])
 graph = pydotplus.graph_from_dot_data(dot_data)  
-graph.write_png('mydecisiond_tree_test.png')
+graph.write_png('mydecisiond_tree_latest.png')
 
 
 ##code representation of decision tree

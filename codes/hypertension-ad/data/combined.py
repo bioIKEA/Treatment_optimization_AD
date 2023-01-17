@@ -33,7 +33,7 @@ replace_MED={
         "nepezil":"aricept",
         "aricept": "aricept",
         "memantine":"namenda",
-        "mementine":"nnamenda",
+        "mementine":"namenda",
         "menda": "namenda",
         "zadyne": "razadyne",
         "galantamine":"razadyne",
@@ -74,14 +74,6 @@ for key, value in replace_REASON.items():
     medication_file.loc[medication_file['CMREASON'].str.contains(key,na=False), 'CMREASON'] = value
 
 
-# medication_file_g= medication_file.groupby(['CMREASON'])['CMREASON'].count().reset_index(name="count_reason").sort_values(['count_reason'], ascending=False)
-# print(medication_file_g)
-# medication_file_g=medication_file_g[(medication_file_g['count_reason']>500)]
-# print(medication_file_g)
-
-# medication_file.plot(kind='bar', title='hi', ylabel='counts',
-#          xlabel='reasons', figsize=(6, 5))
-# plt.show()
 
 #giving all the inhibitors the same name
 
@@ -109,7 +101,6 @@ medication_file.loc[medication_file.CMREASON=="hypertension", 'CMMED']='hyperten
 
 main_medicines=['inhibitors', 'namenda', 'hypertension']
 
-# medication_file['CMMED'] = np.where((medication_file['CMMED']!="inhibitors" ) & (medication_file['CMMED']!="namenda" ) & (medication_file['CMMED']!="hypertension")& (medication_file['CMMED']!="-4"), "others", medication_file['CMMED'])
 ###replacing date column names
 
 
@@ -141,7 +132,7 @@ merged_data=merged_data.dropna(subset=['CMREASON'])
 def check_group(group):
     if isinstance(group['CMREASON'], pd.Series) or isinstance(group['CMMED'], pd.Series):
         for row_id, row in group.iterrows():
-            if set(['hypertension','ad','depression']).intersection(set(row['CMREASON'])) or set(['hypertension','inhibitors','namenda','depression']).intersection(set(row['CMMED'])): 
+            if set(['hypertension','ad']).intersection(set(row['CMREASON'])) or set(['hypertension','inhibitors','namenda']).intersection(set(row['CMMED'])): 
                 return group
 merged_data1= merged_data.groupby('RID').apply(check_group)
 

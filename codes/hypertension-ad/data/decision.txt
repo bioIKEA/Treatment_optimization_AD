@@ -1,0 +1,107 @@
+if ( ADAS13_pre <= 25.164999961853027 ) {
+    if ( ADAS13_pre <= 22.164999961853027 ) {
+        if ( MOCA_pre <= 20.5 ) {
+            if ( ADAS13_pre <= 17.5 ) {
+                return normal ( 63 examples )
+                return mild ( 1 examples )
+                return moderate ( 696 examples )
+            }
+            else {
+                return normal ( 64 examples )
+                return mild ( 3 examples )
+                return moderate ( 267 examples )
+            }
+        }
+        else {
+            if ( AGE <= 88.95000076293945 ) {
+                return normal ( 5 examples )
+                return moderate ( 936 examples )
+            }
+            else {
+                return normal ( 2 examples )
+                return moderate ( 9 examples )
+            }
+        }
+    }
+    else {
+        if ( MOCA_pre <= 21.5 ) {
+            if ( MOCA_pre <= 13.5 ) {
+                return normal ( 29 examples )
+                return mild ( 11 examples )
+                return moderate ( 97 examples )
+            }
+            else {
+                return normal ( 46 examples )
+                return mild ( 1 examples )
+                return moderate ( 65 examples )
+            }
+        }
+        else {
+            if ( CDRSB_pre <= 4.0 ) {
+                return moderate ( 23 examples )
+            }
+            else {
+                return normal ( 1 examples )
+                return moderate ( 3 examples )
+            }
+        }
+    }
+}
+else {
+    if ( ADAS13_pre <= 31.164999961853027 ) {
+        if ( CDRSB_pre <= 3.25 ) {
+            if ( CDRSB_pre <= 1.75 ) {
+                return normal ( 4 examples )
+                return mild ( 2 examples )
+                return moderate ( 45 examples )
+                return severe ( 1 examples )
+            }
+            else {
+                return normal ( 39 examples )
+                return mild ( 7 examples )
+                return moderate ( 63 examples )
+            }
+        }
+        else {
+            if ( MOCA_pre <= 22.5 ) {
+                return normal ( 123 examples )
+                return mild ( 32 examples )
+                return moderate ( 73 examples )
+                return severe ( 1 examples )
+            }
+            else {
+                return normal ( 1 examples )
+                return moderate ( 8 examples )
+            }
+        }
+    }
+    else {
+        if ( ADAS13_pre <= 41.834999084472656 ) {
+            if ( AGE <= 74.8499984741211 ) {
+                return normal ( 54 examples )
+                return mild ( 66 examples )
+                return moderate ( 19 examples )
+                return severe ( 13 examples )
+            }
+            else {
+                return normal ( 108 examples )
+                return mild ( 47 examples )
+                return moderate ( 26 examples )
+                return severe ( 3 examples )
+            }
+        }
+        else {
+            if ( ADAS13_pre <= 54.5 ) {
+                return normal ( 23 examples )
+                return mild ( 70 examples )
+                return moderate ( 3 examples )
+                return severe ( 35 examples )
+            }
+            else {
+                return mild ( 2 examples )
+                return moderate ( 1 examples )
+                return severe ( 22 examples )
+            }
+        }
+    }
+}

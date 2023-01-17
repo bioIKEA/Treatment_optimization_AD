@@ -4,7 +4,7 @@ from ast import literal_eval
 
 pd.set_option('display.max_rows', 500)
 
-merged_file= pd.read_csv("/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/new/hypertension-ad/data/merged_wo-sa.csv")
+merged_file= pd.read_csv("/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/final-tests/hypertension-ad-states/data/merged_wo-sa.csv")
 
 
 ############assigining_states####################
@@ -44,6 +44,32 @@ for index,row in merged_file.iterrows():
 merged_file = merged_file.assign(states= state_list)
 
 
+
+
+##remove list with [nan]
+#from numpy import nan
+#import math
+
+## def check_nan(cmreason):
+##     short_list=list(set(cmreason))
+##     if len(short_list)==1:
+##         if isinstance(short_list[0], float):
+##             if math.isnan(short_list[0]):
+##                 # print(cmreason)
+##                 return False
+##     return True
+## merged_data= merged_data[merged_data['CMREASON'].apply(check_nan)]
+## # print(merged_data['CMREASON'])
+
+#merged_data=merged_data.dropna(subset=['CMREASON'])
+## print(merged_data.CMREASON)
+
+#def check_group(group):
+#        if isinstance(group['CMMED'], pd.Series):
+#            for row_id, row in group.iterrows():
+#                if 'ad' in row['CMREASON'] or 'inhibitors' in row['CMMED']or 'namenda' in row['CMMED']:
+#                    return group
+#merged_data1= merged_data.groupby('RID').apply(check_group)
 
 
 

@@ -99,7 +99,7 @@ def QLearning(q_table_main, train_data_main):
 
 
 
-data_path="/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/new-w-bootstrap/hypertension-ad-states/data/"
+data_path="/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/final-tests/hypertension-ad-states/data/"
 
 data1= pd.read_csv(data_path+'merged_final.csv', low_memory=False)
 

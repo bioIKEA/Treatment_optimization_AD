@@ -266,7 +266,7 @@ def QLearning(q_table, train_data):
 
 
 
-data_path="/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/new-w-bootstrap/hyper-ad-dep/data/"
+data_path="/Users/kritibbhattarai/Desktop/internship/Alzheimer's/python/final-tests/hypertension-ad-states/data/"
 
 data1= pd.read_csv(data_path+'merged_final.csv', low_memory=False)
 
@@ -451,7 +451,7 @@ fig, ax = plt.subplots()
 main=ax.boxplot(weighted_group, patch_artist=True)
 m = weighted_group.mean(axis=0)
 st = weighted_group.std(axis=0)
-ax.set_title('AD-Hyper-Dep')
+ax.set_title('AD-Hypertension')
 for i, line in enumerate(main['medians']):
     x, y = line.get_xydata()[1]
     text = ' μ={:.2f}\n σ={:.2f}'.format(m[i], st[i])
@@ -467,7 +467,7 @@ colors=["forestgreen", "blue", "dimgray",  "slategray", "tomato"]
 for patch, color in zip(main['boxes'],colors):
     patch.set_facecolor(color)
 
-plt.savefig('5000fullrepfinal_colored.png')
+plt.savefig('5000fullrepfinal_colored_latest.png')
 # show plot
 plt.show()
 
