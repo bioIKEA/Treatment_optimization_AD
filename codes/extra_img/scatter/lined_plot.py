@@ -16,12 +16,13 @@ ad_hyp_dep["reward"]+=25
 ad_hyp= pd.read_csv('ad-hyp.csv', low_memory=False)
 ad_hyp["reward_q"]+=25
 ad_hyp["reward"]+=25
-whole= pd.read_csv('whole_only.csv', low_memory=False)
-whole["reward_q"]+=25
-whole["reward"]+=25
+# whole= pd.read_csv('whole_only.csv', low_memory=False)
+ad_dep= pd.read_csv('ad_dep.csv', low_memory=False)
+ad_dep["reward_q"]+=25
+ad_dep["reward"]+=25
 
-lis={0:ad, 1:ad_hyp_dep, 2:ad_hyp, 3:whole}
-lis1=["AD data cohort", "AD,Hypertension,Depression data", "AD Hypertension data", "Whole data cohort"]
+lis={0:ad, 1:ad_hyp_dep, 2:ad_hyp, 3:ad_dep}
+lis1=["AD data cohort", "AD,Hypertension,Depression data", "AD Hypertension data", "AD Depression data"]
 
 
 import plotly.graph_objects as go
@@ -150,7 +151,7 @@ fig.add_trace(go.Scatter(x=lis[3].index,
                          name="Clinician's Policy reward",
                             ),row=2,col=2)
 
-fig.add_annotation(x=127,y=3,
+fig.add_annotation(x=33,y=6,
             text="Clinician's Policy reward",
                    ax=30,
                    ay=20,
@@ -161,7 +162,7 @@ fig.add_annotation(x=127,y=3,
             color="black"
             ),
             arrowhead=1, row=2,col=2)
-fig.add_annotation(x=116,y=25.0,
+fig.add_annotation(x=40,y=25.0,
             text="Q-learning reward",
         font=dict(
             family="Courier New, monospace",
@@ -228,40 +229,5 @@ fig.update_yaxes(title_text="Rewards (MMSE score)", row=2, col=2)
 
 fig.update_layout(height=800, width=800, plot_bgcolor='aliceblue',title_text="Predicted rewards accross different data cohort",showlegend=False)
 
-fig.write_image("test_dec12.png")
+fig.write_image("test_jan22.png")
 fig.show()
-
-'''
-import matplotlib.pyplot as plt
-# ax1 = result.plot(kind='scatter', x='reward_q', y='reward')    
-# ax1.set_xlim(-25,5)
-# # ax2 = result.plot(kind='scatter', x='reward', y='reward_q', color='g', ax=ax1)    
-# plt.savefig('ad_only_w_reward.png')
-# plt.show()
-# fig=df.plot(x="index", kind="bar", stacked=True, title="States Actions Count", figsize=(15, 10))
-for counter in range(4):
-    # a=lis[counter]
-    ax=plt.subplot(2,2,counter+1)
-    ax.set_xlim(-25,5)
-    ax.plot([0, 1], [0, 1], transform=ax.transAxes)
-    fig=lis[counter].plot( kind="scatter",  x='reward_q', y='reward',facecolors='none',title=f"{lis1[counter]} data cohort", figsize=(15, 10),s=25,ax=ax)
-    curr=lis[counter]
-    fig.fill_between(curr.reward_q, curr.reward_q.mean() - 2*curr.reward_q.std(), curr.reward_q.mean() + 2*curr.reward_q.std(), color='red', alpha=0.2)
-    fig.set_facecolor('#D3D3D3')
-    fig.set_xlabel("Q-learning predicted reward (MMSE)")
-    fig.set_ylabel("Behavior Policy Predicted reward (MMSE)")
-    plt.tight_layout()
-
-    # fig=row.T.plot( kind="bar",  title="States Actions Count",color={'No':["b"], 'In':["b"],'Na':["b"],'Hy':["b"],'Ni':["b"],'So':["b"],'No_ai':["r"],'In_ai':["r"],'Na_ai':["r"],'Hy_ai':["r"],'Ni_ai':["r"],'So_ai':["r"]}, figsize=(15, 10))
-    # plt.ylim(0,900)
-    # fig.set_figheight(10)
-    # fig.set_figwidth(15)
-    # plt.xlabel("actions")
-    # plt.ylabel("counts")
-
-    # plt.show()
-plt.savefig('fin.png')
-    # plt.show()
-    # fig.clf()
-    # fig.show()
-'''
