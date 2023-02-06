@@ -1,0 +1,112 @@
+
+data dimension=  (1904, 101)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.404
+Model:                            OLS   Adj. R-squared:                  0.401
+Method:                 Least Squares   F-statistic:                     141.9
+Date:                Wed, 01 Feb 2023   Prob (F-statistic):          2.22e-204
+Time:                        15:03:31   Log-Likelihood:                -3832.6
+No. Observations:                1892   AIC:                             7685.
+Df Residuals:                    1882   BIC:                             7741.
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept               27.7548      0.526     52.794      0.000      26.724      28.786
+AGE                      0.0022      0.007      0.325      0.745      -0.011       0.015
+APOE4                   -0.1863      0.067     -2.773      0.006      -0.318      -0.055
+FDG_pre                  0.0148      0.022      0.666      0.505      -0.029       0.058
+CDRSB_pre               -0.3277      0.031    -10.640      0.000      -0.388      -0.267
+RAVLT_immediate_pre      0.0528      0.005     11.108      0.000       0.043       0.062
+RAVLT_learning_pre      -0.0442      0.022     -1.979      0.048      -0.088      -0.000
+MOCA_pre                 0.0113      0.006      2.018      0.044       0.000       0.022
+ADAS13_pre              -0.1093      0.007    -16.076      0.000      -0.123      -0.096
+RAVLT_forgetting_pre     0.0083      0.019      0.431      0.666      -0.029       0.046
+==============================================================================
+Omnibus:                      143.188   Durbin-Watson:                   1.182
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              195.050
+Skew:                          -0.636   Prob(JB):                     4.42e-43
+Kurtosis:                       3.925   Cond. No.                     1.03e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.03e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+model accuracy=  0.9448818897637795
+if ( CDRSB_pre <= 3.75 ) {
+    if ( ADAS13_pre <= 34.334999084472656 ) {
+        if ( ADAS13_pre <= 22.164999961853027 ) {
+            if ( AGE <= 89.3499984741211 ) {
+                return normal ( 18 examples )
+                return moderate ( 1089 examples )
+            }
+            else {
+                return normal ( 2 examples )
+                return moderate ( 11 examples )
+            }
+        }
+        else {
+            if ( RAVLT_immediate_pre <= 20.5 ) {
+                return normal ( 9 examples )
+                return moderate ( 33 examples )
+            }
+            else {
+                return normal ( 6 examples )
+                return moderate ( 137 examples )
+            }
+        }
+    }
+    else {
+        if ( MOCA_pre <= 19.5 ) {
+            return normal ( 1 examples )
+        }
+        else {
+            if ( CDRSB_pre <= 2.0 ) {
+                return mild ( 1 examples )
+                return moderate ( 2 examples )
+            }
+            else {
+                return mild ( 1 examples )
+            }
+        }
+    }
+}
+else {
+    if ( ADAS13_pre <= 34.165000915527344 ) {
+        if ( ADAS13_pre <= 17.5 ) {
+            return moderate ( 34 examples )
+        }
+        else {
+            if ( AGE <= 78.39999771118164 ) {
+                return normal ( 24 examples )
+                return mild ( 3 examples )
+                return moderate ( 94 examples )
+            }
+            else {
+                return normal ( 17 examples )
+                return mild ( 1 examples )
+                return moderate ( 24 examples )
+            }
+        }
+    }
+    else {
+        if ( CDRSB_pre <= 4.25 ) {
+            return moderate ( 2 examples )
+        }
+        else {
+            if ( RAVLT_immediate_pre <= 17.5 ) {
+                return mild ( 2 examples )
+            }
+            else {
+                return normal ( 8 examples )
+                return mild ( 3 examples )
+                return moderate ( 1 examples )
+            }
+        }
+    }
+}
+None

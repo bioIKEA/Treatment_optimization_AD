@@ -1,0 +1,87 @@
+
+data dimension=  (7338, 100)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.201
+Model:                            OLS   Adj. R-squared:                  0.200
+Method:                 Least Squares   F-statistic:                     195.5
+Date:                Tue, 31 Jan 2023   Prob (F-statistic):               0.00
+Time:                        17:07:03   Log-Likelihood:                -11737.
+No. Observations:                7012   AIC:                         2.349e+04
+Df Residuals:                    7002   BIC:                         2.356e+04
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept               29.4484      0.183    160.567      0.000      29.089      29.808
+AGE                     -0.0086      0.002     -3.602      0.000      -0.013      -0.004
+APOE4                   -0.2065      0.027     -7.671      0.000      -0.259      -0.154
+FDG_pre                 -0.0173      0.008     -2.217      0.027      -0.033      -0.002
+CDRSB_pre               -0.2289      0.017    -13.402      0.000      -0.262      -0.195
+RAVLT_immediate_pre      0.0152      0.001     10.536      0.000       0.012       0.018
+RAVLT_learning_pre       0.0078      0.007      1.047      0.295      -0.007       0.022
+MOCA_pre                 0.0083      0.002      4.060      0.000       0.004       0.012
+ADAS13_pre              -0.0528      0.003    -16.961      0.000      -0.059      -0.047
+RAVLT_forgetting_pre    -0.0095      0.007     -1.461      0.144      -0.022       0.003
+==============================================================================
+Omnibus:                     1079.092   Durbin-Watson:                   1.200
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1826.759
+Skew:                          -1.019   Prob(JB):                         0.00
+Kurtosis:                       4.449   Cond. No.                     1.01e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.01e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+model accuracy=  0.9965940054495913
+if ( ADAS13_pre <= 37.0 ) {
+    if ( CDRSB_pre <= 4.75 ) {
+        if ( ADAS13_pre <= 19.835000038146973 ) {
+            if ( RAVLT_immediate_pre <= 30.5 ) {
+                return normal ( 4 examples )
+                return mild ( 1552 examples )
+            }
+            else {
+                return normal ( 2 examples )
+                return mild ( 3846 examples )
+            }
+        }
+        else {
+            if ( RAVLT_immediate_pre <= 21.5 ) {
+                return normal ( 5 examples )
+                return mild ( 62 examples )
+            }
+            else {
+                return normal ( 4 examples )
+                return mild ( 348 examples )
+            }
+        }
+    }
+    else {
+        if ( FDG_pre <= 2.430032968521118 ) {
+            if ( RAVLT_forgetting_pre <= 5.0 ) {
+                return mild ( 4 examples )
+            }
+            else {
+                return normal ( 3 examples )
+                return mild ( 3 examples )
+            }
+        }
+        else {
+            if ( RAVLT_forgetting_pre <= 8.5 ) {
+                return mild ( 32 examples )
+            }
+            else {
+                return normal ( 1 examples )
+                return mild ( 2 examples )
+            }
+        }
+    }
+}
+else {
+    return normal ( 2 examples )
+}
+None
