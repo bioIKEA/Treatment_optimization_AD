@@ -1,0 +1,19 @@
+#depression-ad
+data dimension=  (4122, 99)
+
+
+ PTGENDER
+Female    229
+Male      326
+Name: RID, dtype: int64
+
+Total Patients=  555
+
+Mean Total Visits=  7.427027027027027
+
+SD Total Visits=  3.765651955144376
+
+Mean Monthly Visits=  40.075675675675676
+
+SD Monthly Visits=  26.896808475657707
+(4122, 99)
