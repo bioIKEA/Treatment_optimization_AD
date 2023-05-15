@@ -1,0 +1,149 @@
+
+data dimension=  (11232, 28)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.377
+Model:                            OLS   Adj. R-squared:                  0.376
+Method:                 Least Squares   F-statistic:                     617.0
+Date:                Fri, 12 May 2023   Prob (F-statistic):               0.00
+Time:                        14:45:54   Log-Likelihood:                -28805.
+No. Observations:               11232   AIC:                         5.763e+04
+Df Residuals:                   11220   BIC:                         5.772e+04
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     23.9810      0.409     58.693      0.000      23.180      24.782
+AXT117        -0.2227      0.059     -3.777      0.000      -0.338      -0.107
+BAT126         0.0001      0.000      0.489      0.625      -0.000       0.001
+HMT3          -0.6541      0.486     -1.347      0.178      -1.606       0.298
+HMT7          -0.0076      0.063     -0.120      0.904      -0.131       0.116
+HMT13          0.0073      0.002      3.992      0.000       0.004       0.011
+HMT40          0.4981      0.195      2.549      0.011       0.115       0.881
+HMT100        -0.1926      0.093     -2.060      0.039      -0.376      -0.009
+HMT102         0.0509      0.090      0.567      0.571      -0.125       0.227
+CDGLOBAL      -3.7925      0.106    -35.666      0.000      -4.001      -3.584
+LIMMTOTAL      0.2708      0.017     16.102      0.000       0.238       0.304
+LDELTOTAL      0.0268      0.015      1.821      0.069      -0.002       0.056
+==============================================================================
+Omnibus:                     4228.766   Durbin-Watson:                   0.683
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            22171.146
+Skew:                          -1.743   Prob(JB):                         0.00
+Kurtosis:                       8.934   Cond. No.                     1.04e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.04e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+model accuracy=  0.8540275923453493
+if ( CDGLOBAL_pre <= 0.75 ) {
+    if ( LDELTOTAL_pre <= 4.5 ) {
+        if ( CDGLOBAL_pre <= 0.21301774680614471 ) {
+            if ( CDGLOBAL_pre <= -0.5 ) {
+                return normal ( 4 examples )
+                return mild ( 1 examples )
+                return moderate ( 8 examples )
+                return severe ( 1 examples )
+            }
+            else {
+                return normal ( 145 examples )
+                return mild ( 3 examples )
+                return moderate ( 1289 examples )
+            }
+        }
+        else {
+            if ( LIMMTOTAL_pre <= 2.5 ) {
+                return normal ( 61 examples )
+                return mild ( 36 examples )
+                return moderate ( 57 examples )
+                return severe ( 6 examples )
+            }
+            else {
+                return normal ( 206 examples )
+                return mild ( 51 examples )
+                return moderate ( 647 examples )
+                return severe ( 14 examples )
+            }
+        }
+    }
+    else {
+        if ( LDELTOTAL_pre <= 7.75138258934021 ) {
+            if ( HMT3_pre <= 4.134697198867798 ) {
+                return normal ( 17 examples )
+                return mild ( 8 examples )
+                return moderate ( 59 examples )
+                return severe ( 3 examples )
+            }
+            else {
+                return normal ( 256 examples )
+                return mild ( 98 examples )
+                return moderate ( 3047 examples )
+                return severe ( 9 examples )
+            }
+        }
+        else {
+            if ( CDGLOBAL_pre <= 0.4630177468061447 ) {
+                return normal ( 2 examples )
+                return moderate ( 1550 examples )
+            }
+            else {
+                return normal ( 22 examples )
+                return mild ( 3 examples )
+                return moderate ( 648 examples )
+            }
+        }
+    }
+}
+else {
+    if ( LIMMTOTAL_pre <= 3.5 ) {
+        if ( CDGLOBAL_pre <= 1.5 ) {
+            if ( HMT3_pre <= 4.3500001430511475 ) {
+                return normal ( 115 examples )
+                return mild ( 96 examples )
+                return moderate ( 35 examples )
+                return severe ( 38 examples )
+            }
+            else {
+                return normal ( 12 examples )
+                return mild ( 25 examples )
+                return severe ( 5 examples )
+            }
+        }
+        else {
+            if ( CDGLOBAL_pre <= 2.5 ) {
+                return normal ( 16 examples )
+                return mild ( 29 examples )
+                return severe ( 21 examples )
+            }
+            else {
+                return severe ( 4 examples )
+            }
+        }
+    }
+    else {
+        if ( LIMMTOTAL_pre <= 10.5 ) {
+            if ( BAT126_pre <= 644.0 ) {
+                return normal ( 143 examples )
+                return mild ( 64 examples )
+                return moderate ( 107 examples )
+                return severe ( 9 examples )
+            }
+            else {
+                return mild ( 3 examples )
+            }
+        }
+        else {
+            if ( AXT117_pre <= 1.5300000309944153 ) {
+                return normal ( 1 examples )
+                return moderate ( 10 examples )
+            }
+            else {
+                return normal ( 1 examples )
+            }
+        }
+    }
+}
+None

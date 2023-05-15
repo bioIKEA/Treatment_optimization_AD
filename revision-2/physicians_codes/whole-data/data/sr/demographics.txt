@@ -1,0 +1,32 @@
+5    3274
+0    3045
+1     150
+3     140
+2      41
+4      26
+Name: action, dtype: int64
+
+data dimension=  (6623, 102)
+
+column_names=  Index(['RID', 'PTID', 'VISCODE', 'SITE', 'COLPROT', 'ORIGPROT', 'EXAMDATE',
+       'DX.bl', 'AGE', 'PTGENDER',
+       ...
+       'MOCA_pre', 'RAVLT.learning_pre', 'RAVLT.immediate_pre',
+       'RAVLT.forgetting_pre', 'index', 'CMMED', 'CMREASON', 'avg_mmse',
+       'states', 'action'],
+      dtype='object', length=102)
+
+ PTGENDER
+Female    449
+Male      540
+Name: RID, dtype: int64
+
+Total Patients=  989
+
+Mean Total Visits=  6.696663296258848
+
+SD Total Visits=  3.592192245752303
+
+Mean Monthly Visits=  37.00707785642063
+
+SD Monthly Visits=  26.37580611533628

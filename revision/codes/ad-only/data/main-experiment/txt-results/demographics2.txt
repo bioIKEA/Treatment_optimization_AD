@@ -1,0 +1,48 @@
+
+data dimension=  (3716, 99)
+
+column_names=  Index(['RID', 'PTID', 'VISCODE', 'SITE', 'COLPROT', 'ORIGPROT', 'EXAMDATE',
+       'DX.bl', 'AGE', 'PTGENDER', 'PTEDUCAT', 'PTETHCAT', 'PTRACCAT',
+       'PTMARRY', 'APOE4', 'FDG', 'PIB', 'AV45', 'CDRSB', 'ADAS11', 'ADAS13',
+       'MMSE', 'RAVLT.immediate', 'RAVLT.learning', 'RAVLT.forgetting',
+       'RAVLT.perc.forgetting', 'FAQ', 'MOCA', 'EcogPtMem', 'EcogPtLang',
+       'EcogPtVisspat', 'EcogPtPlan', 'EcogPtOrgan', 'EcogPtDivatt',
+       'EcogPtTotal', 'EcogSPMem', 'EcogSPLang', 'EcogSPVisspat', 'EcogSPPlan',
+       'EcogSPOrgan', 'EcogSPDivatt', 'EcogSPTotal', 'Ventricles',
+       'Hippocampus', 'WholeBrain', 'Entorhinal', 'Fusiform', 'MidTemp', 'ICV',
+       'DX', 'EXAMDATE.bl', 'CDRSB.bl', 'ADAS11.bl', 'ADAS13.bl', 'MMSE.bl',
+       'RAVLT.immediate.bl', 'RAVLT.learning.bl', 'RAVLT.forgetting.bl',
+       'RAVLT.perc.forgetting.bl', 'FAQ.bl', 'Ventricles.bl', 'Hippocampus.bl',
+       'WholeBrain.bl', 'Entorhinal.bl', 'Fusiform.bl', 'MidTemp.bl', 'ICV.bl',
+       'MOCA.bl', 'EcogPtMem.bl', 'EcogPtLang.bl', 'EcogPtVisspat.bl',
+       'EcogPtPlan.bl', 'EcogPtOrgan.bl', 'EcogPtDivatt.bl', 'EcogPtTotal.bl',
+       'EcogSPMem.bl', 'EcogSPLang.bl', 'EcogSPVisspat.bl', 'EcogSPPlan.bl',
+       'EcogSPOrgan.bl', 'EcogSPDivatt.bl', 'EcogSPTotal.bl', 'FDG.bl',
+       'PIB.bl', 'AV45.bl', 'Years.bl', 'Month.bl', 'Month', 'M', 'ADAS13_pre',
+       'FDG_pre', 'CDRSB_pre', 'MOCA_pre', 'RAVLT.learning_pre',
+       'RAVLT.immediate_pre', 'RAVLT.forgetting_pre', 'index', 'CMMED',
+       'CMREASON'],
+      dtype='object')
+
+ PTGENDER
+Female    202
+Male      296
+Name: RID, dtype: int64
+
+Total Patients=  498
+
+Mean Total Visits=  7.461847389558233
+
+SD Total Visits=  3.7119024122288935
+
+Mean Monthly Visits=  40.10843373493976
+
+SD Monthly Visits=  26.72123567074049
+0    2304
+1     782
+2     358
+4     149
+3     123
+Name: action, dtype: int64
+
+merged data dimension=  (3716, 101)

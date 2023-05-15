@@ -1,0 +1,6 @@
+False
+(11133, 99)
+
+Total Patients before filtering=  1734
+
+Total Patients with more than 1 visits only=  1656

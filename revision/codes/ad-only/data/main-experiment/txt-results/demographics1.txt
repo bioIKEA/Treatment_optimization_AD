@@ -1,0 +1,18 @@
+(11055, 99)
+
+data dimension=  (3716, 99)
+
+ PTGENDER
+Female    202
+Male      296
+Name: RID, dtype: int64
+
+Total Patients=  498
+
+Mean Total Visits=  7.461847389558233
+
+SD Total Visits=  3.7119024122288935
+
+Mean Monthly Visits=  40.10843373493976
+
+SD Monthly Visits=  26.72123567074049

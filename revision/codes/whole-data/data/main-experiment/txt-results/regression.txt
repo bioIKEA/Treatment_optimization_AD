@@ -1,0 +1,148 @@
+
+data dimension=  (11055, 99)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.621
+Model:                            OLS   Adj. R-squared:                  0.620
+Method:                 Least Squares   F-statistic:                     1188.
+Date:                Wed, 03 May 2023   Prob (F-statistic):               0.00
+Time:                        15:21:56   Log-Likelihood:                -12273.
+No. Observations:                5821   AIC:                         2.456e+04
+Df Residuals:                    5812   BIC:                         2.462e+04
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept               27.7375      0.294     94.384      0.000      27.161      28.314
+AGE                      0.0035      0.004      0.916      0.360      -0.004       0.011
+APOE4                 -7.39e-13   7.83e-15    -94.372      0.000   -7.54e-13   -7.24e-13
+FDG_pre                  0.0216      0.013      1.675      0.094      -0.004       0.047
+CDRSB_pre               -0.5070      0.021    -24.103      0.000      -0.548      -0.466
+RAVLT_immediate_pre      0.0322      0.002     13.041      0.000       0.027       0.037
+RAVLT_learning_pre       0.0236      0.012      1.947      0.052      -0.000       0.047
+MOCA_pre                 0.0215      0.004      6.134      0.000       0.015       0.028
+ADAS13_pre              -0.1534      0.004    -36.692      0.000      -0.162      -0.145
+RAVLT_forgetting_pre     0.1002      0.010     10.133      0.000       0.081       0.120
+==============================================================================
+Omnibus:                     1190.049   Durbin-Watson:                   1.163
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4112.881
+Skew:                          -1.009   Prob(JB):                         0.00
+Kurtosis:                       6.589   Cond. No.                     1.05e+19
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 3.8e-31. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+
+model accuracy=  0.8729081863410222
+if ( ADAS13_pre <= 25.835000038146973 ) {
+    if ( CDRSB_pre <= 3.75 ) {
+        if ( RAVLT_immediate_pre <= 27.5 ) {
+            if ( ADAS13_pre <= 22.164999961853027 ) {
+                return normal ( 172 examples )
+                return mild ( 6 examples )
+                return moderate ( 1814 examples )
+            }
+            else {
+                return normal ( 48 examples )
+                return mild ( 7 examples )
+                return moderate ( 153 examples )
+            }
+        }
+        else {
+            if ( ADAS13_pre <= 21.164999961853027 ) {
+                return normal ( 38 examples )
+                return mild ( 1 examples )
+                return moderate ( 4496 examples )
+            }
+            else {
+                return normal ( 19 examples )
+                return mild ( 1 examples )
+                return moderate ( 165 examples )
+            }
+        }
+    }
+    else {
+        if ( MOCA_pre <= 19.5 ) {
+            if ( CDRSB_pre <= 4.75 ) {
+                return normal ( 39 examples )
+                return mild ( 5 examples )
+                return moderate ( 104 examples )
+            }
+            else {
+                return normal ( 62 examples )
+                return mild ( 10 examples )
+                return moderate ( 60 examples )
+            }
+        }
+        else {
+            if ( CDRSB_pre <= 5.25 ) {
+                return normal ( 9 examples )
+                return moderate ( 99 examples )
+            }
+            else {
+                return normal ( 13 examples )
+                return moderate ( 30 examples )
+            }
+        }
+    }
+}
+else {
+    if ( ADAS13_pre <= 35.5 ) {
+        if ( CDRSB_pre <= 3.75 ) {
+            if ( CDRSB_pre <= 2.0 ) {
+                return normal ( 22 examples )
+                return mild ( 8 examples )
+                return moderate ( 101 examples )
+                return severe ( 1 examples )
+            }
+            else {
+                return normal ( 98 examples )
+                return mild ( 23 examples )
+                return moderate ( 132 examples )
+            }
+        }
+        else {
+            if ( FDG_pre <= 6.026693344116211 ) {
+                return normal ( 273 examples )
+                return mild ( 117 examples )
+                return moderate ( 148 examples )
+                return severe ( 8 examples )
+            }
+            else {
+                return normal ( 11 examples )
+                return mild ( 1 examples )
+                return moderate ( 34 examples )
+            }
+        }
+    }
+    else {
+        if ( ADAS13_pre <= 52.165000915527344 ) {
+            if ( MOCA_pre <= 15.5 ) {
+                return normal ( 113 examples )
+                return mild ( 209 examples )
+                return moderate ( 17 examples )
+                return severe ( 54 examples )
+            }
+            else {
+                return normal ( 35 examples )
+                return mild ( 13 examples )
+                return moderate ( 16 examples )
+            }
+        }
+        else {
+            if ( MOCA_pre <= 4.5 ) {
+                return mild ( 3 examples )
+                return severe ( 39 examples )
+            }
+            else {
+                return mild ( 7 examples )
+                return moderate ( 1 examples )
+                return severe ( 9 examples )
+            }
+        }
+    }
+}
+None

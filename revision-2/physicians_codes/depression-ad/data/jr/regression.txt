@@ -1,0 +1,143 @@
+
+data dimension=  (1495, 100)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.608
+Model:                            OLS   Adj. R-squared:                  0.606
+Method:                 Least Squares   F-statistic:                     252.5
+Date:                Wed, 01 Feb 2023   Prob (F-statistic):          2.39e-290
+Time:                        14:07:10   Log-Likelihood:                -3681.6
+No. Observations:                1474   AIC:                             7383.
+Df Residuals:                    1464   BIC:                             7436.
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept               20.9215      0.902     23.198      0.000      19.152      22.691
+AGE                      0.0525      0.011      4.647      0.000       0.030       0.075
+APOE4                   -0.0794      0.119     -0.665      0.506      -0.314       0.155
+FDG_pre                  0.0013      0.035      0.038      0.970      -0.068       0.071
+CDRSB_pre               -0.4387      0.038    -11.682      0.000      -0.512      -0.365
+RAVLT_immediate_pre      0.1507      0.015     10.258      0.000       0.122       0.180
+RAVLT_learning_pre      -0.0547      0.059     -0.931      0.352      -0.170       0.061
+MOCA_pre                 0.0675      0.011      5.926      0.000       0.045       0.090
+ADAS13_pre              -0.1637      0.009    -18.570      0.000      -0.181      -0.146
+RAVLT_forgetting_pre    -0.1228      0.067     -1.824      0.068      -0.255       0.009
+==============================================================================
+Omnibus:                       68.021   Durbin-Watson:                   1.389
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               96.225
+Skew:                          -0.424   Prob(JB):                     1.27e-21
+Kurtosis:                       3.921   Cond. No.                         968.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+model accuracy=  0.5418060200668896
+if ( ADAS13_pre <= 28.5 ) {
+    if ( ADAS13_pre <= 22.835000038146973 ) {
+        if ( CDRSB_pre <= 3.75 ) {
+            if ( FDG_pre <= 6.980457305908203 ) {
+                return normal ( 86 examples )
+                return mild ( 5 examples )
+                return moderate ( 217 examples )
+            }
+            else {
+                return normal ( 3 examples )
+            }
+        }
+        else {
+            if ( APOE4 <= 0.9103653430938721 ) {
+                return normal ( 12 examples )
+                return moderate ( 3 examples )
+            }
+            else {
+                return normal ( 11 examples )
+                return mild ( 3 examples )
+                return moderate ( 13 examples )
+            }
+        }
+    }
+    else {
+        if ( RAVLT_immediate_pre <= 31.5 ) {
+            if ( FDG_pre <= 5.766028165817261 ) {
+                return normal ( 93 examples )
+                return mild ( 24 examples )
+                return moderate ( 69 examples )
+            }
+            else {
+                return normal ( 45 examples )
+                return moderate ( 15 examples )
+            }
+        }
+        else {
+            if ( CDRSB_pre <= 6.25 ) {
+                return normal ( 1 examples )
+                return moderate ( 12 examples )
+            }
+            else {
+                return normal ( 2 examples )
+                return mild ( 1 examples )
+            }
+        }
+    }
+}
+else {
+    if ( ADAS13_pre <= 36.5 ) {
+        if ( RAVLT_immediate_pre <= 15.5 ) {
+            if ( ADAS13_pre <= 32.165000915527344 ) {
+                return normal ( 13 examples )
+                return mild ( 8 examples )
+                return moderate ( 1 examples )
+                return severe ( 1 examples )
+            }
+            else {
+                return normal ( 10 examples )
+                return mild ( 21 examples )
+                return moderate ( 4 examples )
+            }
+        }
+        else {
+            if ( CDRSB_pre <= 6.25 ) {
+                return normal ( 131 examples )
+                return mild ( 37 examples )
+                return moderate ( 51 examples )
+                return severe ( 3 examples )
+            }
+            else {
+                return normal ( 25 examples )
+                return mild ( 21 examples )
+                return moderate ( 5 examples )
+                return severe ( 5 examples )
+            }
+        }
+    }
+    else {
+        if ( ADAS13_pre <= 51.5 ) {
+            if ( AGE <= 75.10000228881836 ) {
+                return normal ( 15 examples )
+                return mild ( 68 examples )
+                return moderate ( 3 examples )
+                return severe ( 31 examples )
+            }
+            else {
+                return normal ( 38 examples )
+                return mild ( 42 examples )
+                return moderate ( 4 examples )
+                return severe ( 10 examples )
+            }
+        }
+        else {
+            if ( AGE <= 78.39999771118164 ) {
+                return mild ( 2 examples )
+                return moderate ( 1 examples )
+                return severe ( 29 examples )
+            }
+            else {
+                return mild ( 2 examples )
+            }
+        }
+    }
+}
+None
