@@ -1,0 +1,142 @@
+
+data dimension=  (3318, 28)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.370
+Model:                            OLS   Adj. R-squared:                  0.367
+Method:                 Least Squares   F-statistic:                     176.2
+Date:                Wed, 17 May 2023   Prob (F-statistic):          3.98e-321
+Time:                        02:04:43   Log-Likelihood:                -8950.9
+No. Observations:                3318   AIC:                         1.793e+04
+Df Residuals:                    3306   BIC:                         1.800e+04
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     22.9970      0.693     33.181      0.000      21.638      24.356
+AXT117         0.1597      0.094      1.703      0.089      -0.024       0.343
+BAT126      7.084e-05      0.000      0.202      0.840      -0.001       0.001
+HMT3          -1.2241      0.787     -1.555      0.120      -2.768       0.320
+HMT7          -0.0181      0.104     -0.174      0.862      -0.223       0.186
+HMT13          0.0083      0.003      2.382      0.017       0.001       0.015
+HMT40          0.7078      0.329      2.153      0.031       0.063       1.352
+HMT100        -0.2257      0.151     -1.494      0.135      -0.522       0.070
+HMT102         0.0552      0.145      0.380      0.704      -0.230       0.340
+CDGLOBAL      -3.9190      0.203    -19.274      0.000      -4.318      -3.520
+LIMMTOTAL      0.3078      0.030     10.428      0.000       0.250       0.366
+LDELTOTAL      0.0832      0.026      3.153      0.002       0.031       0.135
+==============================================================================
+Omnibus:                      998.746   Durbin-Watson:                   0.708
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3650.163
+Skew:                          -1.466   Prob(JB):                         0.00
+Kurtosis:                       7.219   Cond. No.                     8.48e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 8.48e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+model accuracy=  0.7093373493975904
+if ( CDGLOBAL_pre <= 0.75 ) {
+    if ( LDELTOTAL_pre <= 7.75138258934021 ) {
+        if ( CDGLOBAL_pre <= 0.4630177468061447 ) {
+            if ( BAT126_pre <= 466.0 ) {
+                return normal ( 118 examples )
+                return mild ( 17 examples )
+                return moderate ( 698 examples )
+                return severe ( 3 examples )
+            }
+            else {
+                return normal ( 22 examples )
+                return mild ( 8 examples )
+                return moderate ( 36 examples )
+                return severe ( 2 examples )
+            }
+        }
+        else {
+            if ( LDELTOTAL_pre <= 1.5 ) {
+                return normal ( 143 examples )
+                return mild ( 48 examples )
+                return moderate ( 245 examples )
+                return severe ( 12 examples )
+            }
+            else {
+                return normal ( 70 examples )
+                return mild ( 15 examples )
+                return moderate ( 337 examples )
+                return severe ( 1 examples )
+            }
+        }
+    }
+    else {
+        if ( LIMMTOTAL_pre <= 7.5 ) {
+            if ( LDELTOTAL_pre <= 8.5 ) {
+                return normal ( 2 examples )
+                return moderate ( 22 examples )
+            }
+            else {
+                return normal ( 3 examples )
+                return mild ( 2 examples )
+                return moderate ( 2 examples )
+            }
+        }
+        else {
+            if ( LDELTOTAL_pre <= 8.5 ) {
+                return normal ( 7 examples )
+                return moderate ( 61 examples )
+            }
+            else {
+                return normal ( 6 examples )
+                return mild ( 1 examples )
+                return moderate ( 333 examples )
+            }
+        }
+    }
+}
+else {
+    if ( LIMMTOTAL_pre <= 3.5 ) {
+        if ( HMT7_pre <= 6.825000047683716 ) {
+            if ( CDGLOBAL_pre <= 1.5 ) {
+                return normal ( 76 examples )
+                return mild ( 77 examples )
+                return moderate ( 21 examples )
+                return severe ( 33 examples )
+            }
+            else {
+                return normal ( 3 examples )
+                return mild ( 18 examples )
+                return severe ( 6 examples )
+            }
+        }
+        else {
+            if ( LDELTOTAL_pre <= 2.0 ) {
+                return mild ( 13 examples )
+            }
+            else {
+                return normal ( 1 examples )
+                return mild ( 1 examples )
+            }
+        }
+    }
+    else {
+        if ( HMT7_pre <= 4.664999961853027 ) {
+            return moderate ( 5 examples )
+        }
+        else {
+            if ( LIMMTOTAL_pre <= 9.365745067596436 ) {
+                return normal ( 79 examples )
+                return mild ( 28 examples )
+                return moderate ( 51 examples )
+                return severe ( 7 examples )
+            }
+            else {
+                return normal ( 4 examples )
+                return mild ( 6 examples )
+                return moderate ( 11 examples )
+            }
+        }
+    }
+}
+None

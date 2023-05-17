@@ -1,0 +1,151 @@
+
+data dimension=  (3720, 28)
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   MMSE   R-squared:                       0.392
+Model:                            OLS   Adj. R-squared:                  0.391
+Method:                 Least Squares   F-statistic:                     217.8
+Date:                Wed, 17 May 2023   Prob (F-statistic):               0.00
+Time:                        02:42:08   Log-Likelihood:                -10031.
+No. Observations:                3720   AIC:                         2.009e+04
+Df Residuals:                    3708   BIC:                         2.016e+04
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     22.9527      0.658     34.886      0.000      21.663      24.243
+AXT117         0.1436      0.092      1.567      0.117      -0.036       0.323
+BAT126      2.188e-05      0.000      0.065      0.948      -0.001       0.001
+HMT3          -1.3972      0.778     -1.796      0.073      -2.923       0.128
+HMT7          -0.0009      0.102     -0.008      0.993      -0.200       0.199
+HMT13          0.0085      0.003      2.480      0.013       0.002       0.015
+HMT40          0.7802      0.320      2.437      0.015       0.153       1.408
+HMT100        -0.2268      0.150     -1.514      0.130      -0.520       0.067
+HMT102         0.0477      0.144      0.331      0.740      -0.234       0.330
+CDGLOBAL      -3.9286      0.179    -21.907      0.000      -4.280      -3.577
+LIMMTOTAL      0.3339      0.028     12.018      0.000       0.279       0.388
+LDELTOTAL      0.0424      0.025      1.715      0.086      -0.006       0.091
+==============================================================================
+Omnibus:                     1135.268   Durbin-Watson:                   0.725
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4288.156
+Skew:                          -1.478   Prob(JB):                         0.00
+Kurtosis:                       7.351   Cond. No.                     8.76e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 8.76e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+model accuracy=  0.7016129032258065
+if ( CDGLOBAL_pre <= 0.75 ) {
+    if ( LDELTOTAL_pre <= 7.75138258934021 ) {
+        if ( CDGLOBAL_pre <= 0.4630177468061447 ) {
+            if ( BAT126_pre <= 466.0 ) {
+                return normal ( 115 examples )
+                return mild ( 15 examples )
+                return moderate ( 744 examples )
+                return severe ( 2 examples )
+            }
+            else {
+                return normal ( 17 examples )
+                return mild ( 8 examples )
+                return moderate ( 33 examples )
+                return severe ( 2 examples )
+            }
+        }
+        else {
+            if ( LIMMTOTAL_pre <= 5.5 ) {
+                return normal ( 131 examples )
+                return mild ( 57 examples )
+                return moderate ( 256 examples )
+                return severe ( 20 examples )
+            }
+            else {
+                return normal ( 94 examples )
+                return mild ( 18 examples )
+                return moderate ( 416 examples )
+                return severe ( 2 examples )
+            }
+        }
+    }
+    else {
+        if ( LIMMTOTAL_pre <= 7.5 ) {
+            if ( LDELTOTAL_pre <= 8.5 ) {
+                return normal ( 1 examples )
+                return moderate ( 19 examples )
+            }
+            else {
+                return normal ( 4 examples )
+                return mild ( 2 examples )
+                return moderate ( 2 examples )
+            }
+        }
+        else {
+            if ( LDELTOTAL_pre <= 9.5 ) {
+                return normal ( 11 examples )
+                return mild ( 1 examples )
+                return moderate ( 132 examples )
+            }
+            else {
+                return normal ( 6 examples )
+                return moderate ( 388 examples )
+            }
+        }
+    }
+}
+else {
+    if ( LIMMTOTAL_pre <= 3.5 ) {
+        if ( HMT7_pre <= 6.825000047683716 ) {
+            if ( CDGLOBAL_pre <= 1.5 ) {
+                return normal ( 89 examples )
+                return mild ( 65 examples )
+                return moderate ( 21 examples )
+                return severe ( 38 examples )
+            }
+            else {
+                return normal ( 9 examples )
+                return mild ( 23 examples )
+                return severe ( 15 examples )
+            }
+        }
+        else {
+            if ( LDELTOTAL_pre <= 2.0 ) {
+                return normal ( 1 examples )
+                return mild ( 13 examples )
+            }
+            else {
+                return normal ( 1 examples )
+                return mild ( 1 examples )
+            }
+        }
+    }
+    else {
+        if ( LIMMTOTAL_pre <= 6.5 ) {
+            if ( LDELTOTAL_pre <= 5.5 ) {
+                return normal ( 58 examples )
+                return mild ( 20 examples )
+                return moderate ( 27 examples )
+                return severe ( 6 examples )
+            }
+            else {
+                return moderate ( 3 examples )
+            }
+        }
+        else {
+            if ( LIMMTOTAL_pre <= 7.5 ) {
+                return normal ( 8 examples )
+                return mild ( 12 examples )
+                return moderate ( 15 examples )
+                return severe ( 3 examples )
+            }
+            else {
+                return normal ( 23 examples )
+                return mild ( 6 examples )
+                return moderate ( 23 examples )
+            }
+        }
+    }
+}
+None

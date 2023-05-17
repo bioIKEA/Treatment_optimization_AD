@@ -1,0 +1,17 @@
+0    1238
+5    1183
+1     428
+2     179
+4     153
+3     137
+Name: action, dtype: int64
+
+data dimension=  (3316, 30)
+
+column_names=  Index(['RID', 'EXAMDATE', 'MMSE', 'CDGLOBAL', 'AXT117', 'BAT126', 'HMT3',
+       'HMT7', 'HMT13', 'HMT40', 'HMT100', 'HMT102', 'LIMMTOTAL', 'LDELTOTAL',
+       'AXT117_pre', 'BAT126_pre', 'HMT3_pre', 'HMT7_pre', 'HMT13_pre',
+       'HMT40_pre', 'HMT100_pre', 'HMT102_pre', 'CDGLOBAL_pre',
+       'LIMMTOTAL_pre', 'LDELTOTAL_pre', 'index', 'CMMED', 'CMREASON',
+       'states', 'action'],
+      dtype='object')
